@@ -1,0 +1,132 @@
+//!  SIZE
+$mobileSize: 375px;
+$desktopSize: 1700px;
+
+//! COLORS
+// PRIMARY
+$darkCyan: hsl(158, 36%, 37%);
+$cream: hsl(30, 38%, 92%);
+
+// NEUTRAL
+$veryDarkBlue: hsl(212, 21%, 14%);
+$darkGray: hsl(228, 12%, 48%);
+$white: hsl(0, 0%, 100%);
+
+//! FONTS
+// Montserrat
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+// Fraunces
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&display=swap");
+
+$defaultFontSize: 14px;
+
+//! MISC
+$radius: 0.5rem;
+
+//! STYLING
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $cream;
+
+	width: 100vw;
+	height: 100vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.montserrat {
+	font-family: "Montserrat";
+}
+.fraunces {
+	font-family: "Fraunces";
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+	max-width: fit-content;
+	background-color: $white;
+	border-radius: $radius;
+
+	.preview {
+		border-top-left-radius: $radius;
+		border-top-right-radius: $radius;
+	}
+
+	.product {
+		margin: 1rem;
+		margin-bottom: 0;
+		.prod-type {
+			text-transform: uppercase;
+			font-size: $defaultFontSize;
+			letter-spacing: 0.25em;
+			color: $darkGray;
+		}
+		.prod-title {
+			font-size: calc($defaultFontSize * 2);
+			line-height: 1;
+			padding: 0.5em 0 0.5em 0;
+		}
+		.prod-description {
+			color: $darkGray;
+			font-size: $defaultFontSize - 1.2;
+			line-height: 1.5;
+		}
+	}
+
+	.shop {
+		margin: 1rem;
+		.price {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			padding-bottom: 1rem;
+			.sale-price {
+				color: $darkCyan;
+				font-size: 2em;
+			}
+			.original-price {
+				text-decoration: line-through;
+				color: rgba(black, 0.5);
+				font-size: $defaultFontSize;
+			}
+		}
+		.purchase {
+			display: flex;
+			justify-content: center;
+			padding: 1rem;
+
+			border-radius: 0.5rem;
+			background-color: $darkCyan;
+			color: $white;
+
+			font-size: $defaultFontSize;
+			font-weight: bold;
+			gap: 0.5rem;
+		}
+	}
+}
+
+@media (min-width: $desktopSize) {
+	.card {
+		flex-direction: row;
+		align-items: center;
+	}
+	.product {
+		max-width: 20rem;
+	}
+	.preview {
+		border-radius: $radius;
+		width: 50%;
+	}
+}
